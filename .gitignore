@@ -1,0 +1,29 @@
+## .NET
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+*.user
+*.suo
+.vs/
+.vscode/
+
+## Build / test output
+[Tt]est[Rr]esults/
+*.trx
+*.coverage
+coverage/
+
+## Local SQLite databases
+*.db
+*.db-shm
+*.db-wal
+
+## Rider / Resharper
+.idea/
+_ReSharper*/
+*.DotSettings.user
+
+## OS
+.DS_Store
+Thumbs.db
