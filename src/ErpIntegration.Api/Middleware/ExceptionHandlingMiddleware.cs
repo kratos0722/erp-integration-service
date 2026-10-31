@@ -34,6 +34,10 @@ public sealed class ExceptionHandlingMiddleware
         {
             await WriteProblem(context, StatusCodes.Status404NotFound, "Resource not found", [ex.Message]);
         }
+        catch (BusinessRuleException ex)
+        {
+            await WriteProblem(context, StatusCodes.Status409Conflict, "Business rule violation", [ex.Message]);
+        }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Unhandled exception processing {Path}", context.Request.Path);
