@@ -12,4 +12,7 @@ public interface IErpConnector
 
     /// <summary>Maps and transmits a customer to the ERP, returning the outcome.</summary>
     Task<ErpSyncResult> PushCustomerAsync(Customer customer, CancellationToken ct = default);
+
+    /// <summary>Maps and transmits an invoice to the ERP, returning the outcome.</summary>
+    Task<ErpSyncResult> PushInvoiceAsync(Invoice invoice, CancellationToken ct = default);
 }
