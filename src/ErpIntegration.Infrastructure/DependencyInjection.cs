@@ -18,6 +18,7 @@ public static class DependencyInjection
         // The DbContext acts as the unit of work for the scope.
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<ErpDbContext>());
         services.AddScoped<ICustomerRepository, CustomerRepository>();
+        services.AddScoped<IInvoiceRepository, InvoiceRepository>();
 
         // ERP connectors — registered as a set so the factory can resolve by ERP.
         services.AddScoped<IErpConnector, Sage300Connector>();

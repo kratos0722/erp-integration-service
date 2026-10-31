@@ -10,6 +10,7 @@ public sealed class ErpDbContext : DbContext, IUnitOfWork
     public ErpDbContext(DbContextOptions<ErpDbContext> options) : base(options) { }
 
     public DbSet<Customer> Customers => Set<Customer>();
+    public DbSet<Invoice> Invoices => Set<Invoice>();
     public DbSet<ErpSyncLog> SyncLogs => Set<ErpSyncLog>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
