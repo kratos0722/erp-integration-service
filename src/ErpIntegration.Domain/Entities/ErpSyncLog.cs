@@ -7,6 +7,10 @@ public class ErpSyncLog
 {
     public Guid Id { get; set; } = Guid.NewGuid();
     public Guid CustomerId { get; set; }
+
+    /// <summary>Set when the logged attempt was an invoice push rather than a customer push.</summary>
+    public Guid? InvoiceId { get; set; }
+
     public ErpSystem TargetErp { get; set; }
     public SyncStatus Result { get; set; }
     public int Attempts { get; set; }
