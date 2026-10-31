@@ -15,11 +15,14 @@ public class RetryBehaviorTests
         private int _calls;
         public override ErpSystem System => ErpSystem.Sage300;
 
-        protected override Task<string> SendAsync(Customer customer, CancellationToken ct)
+        protected override Task<string> SendCustomerAsync(Customer customer, CancellationToken ct)
         {
             if (++_calls <= failBefore) throw new ErpTransientException($"attempt {_calls}");
             return Task.FromResult("AR-999999");
         }
+
+        protected override Task<string> SendInvoiceAsync(Invoice invoice, CancellationToken ct)
+            => Task.FromResult("ARINV-999999");
     }
 
     [Fact]
